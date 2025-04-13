@@ -1,4 +1,4 @@
-# 🧠 Prompt Engineering Principles: How to Think When Writing a Prompt  
+# Prompt Engineering Principles: How to Think When Writing a Prompt  
 _A structured mindset for non-developers_
 
 ---
