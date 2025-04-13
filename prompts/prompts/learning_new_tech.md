@@ -26,6 +26,51 @@ As an expert instructor in [technology], please provide a comprehensive overview
 - Community: [Where to get help]
 ```
 
+Example:
+```
+As an expert instructor in Docker, please provide a comprehensive overview:
+
+1. Fundamental Concepts:
+- Core Features: Container runtime, image management, networking, volumes
+- Use Cases: Application deployment, microservices, CI/CD pipelines
+- Advantages: Consistent environments, isolation, scalability, version control
+- Prerequisites: Basic command line, Linux concepts, networking basics
+
+2. Getting Started Path:
+- Installation:
+  1. Download Docker Desktop
+  2. Install for your OS
+  3. Verify with 'docker --version'
+- First Steps:
+  1. Run hello-world container
+  2. Pull an nginx image
+  3. Run a web server
+- Basic Examples:
+  ```bash
+  # Run hello-world
+  docker run hello-world
+  
+  # Run nginx server
+  docker run -p 80:80 nginx
+  
+  # Build custom image
+  docker build -t myapp .
+  ```
+- Common Pitfalls:
+  - Running as root
+  - Not using .dockerignore
+  - Inefficient layer caching
+
+3. Learning Resources:
+- Official Docs: docs.docker.com
+- Tutorials: Docker Getting Started Guide
+- Practice Projects: 
+  1. Containerize a web app
+  2. Multi-container setup
+  3. Docker Compose project
+- Community: Docker Forums, Stack Overflow Docker tag
+```
+
 ## 🎯 Specific Concept Learning Template
 
 ```

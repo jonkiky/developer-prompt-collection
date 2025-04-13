@@ -26,6 +26,63 @@ As an experienced code reviewer, please review this code:
 - Documentation: [Comments/docs]
 ```
 
+Example:
+```
+As an experienced code reviewer, please review this code:
+
+1. Code Context:
+- Purpose: User authentication service implementation
+- Language/Framework: Node.js with Express, TypeScript
+- Changes: Adding JWT authentication and password hashing
+- Dependencies: bcrypt, jsonwebtoken, express-validator
+
+2. Review Focus Areas:
+- Functionality: JWT token generation and validation
+- Performance: Password hashing optimization
+- Security: Password storage, token security
+- Maintainability: Service layer organization
+
+3. Specific Checks:
+- Logic: Token expiration and refresh flow
+- Error Handling: Invalid credentials, expired tokens
+- Tests: Auth middleware and service unit tests
+- Documentation: API endpoints and security measures
+
+Code to review:
+```typescript
+import { hash, compare } from 'bcrypt';
+import { sign, verify } from 'jsonwebtoken';
+import { Request, Response } from 'express';
+
+export class AuthService {
+  private readonly SALT_ROUNDS = 10;
+  private readonly JWT_SECRET = process.env.JWT_SECRET || 'default-secret';
+
+  async hashPassword(password: string): Promise<string> {
+    return hash(password, this.SALT_ROUNDS);
+  }
+
+  async login(email: string, password: string): Promise<string | null> {
+    const user = await this.userRepository.findByEmail(email);
+    if (!user) return null;
+
+    const isValid = await compare(password, user.passwordHash);
+    if (!isValid) return null;
+
+    return sign({ userId: user.id }, this.JWT_SECRET, { expiresIn: '1h' });
+  }
+
+  async validateToken(token: string): Promise<any> {
+    try {
+      return verify(token, this.JWT_SECRET);
+    } catch {
+      return null;
+    }
+  }
+}
+```
+```
+
 ## 🎯 Pull Request Review Template
 
 ```

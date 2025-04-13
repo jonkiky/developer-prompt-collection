@@ -27,6 +27,46 @@ Example similar Dockerfile:
 [Reference Dockerfile if available]
 ```
 
+Example:
+```
+As a DevOps expert, please help me create a Dockerfile:
+
+1. Application Details:
+- Language/Framework: Node.js 18, React application
+- Environment: Production
+- Dependencies: npm packages, nginx for serving
+
+2. Requirements:
+- Base Image: node:18-alpine for build, nginx:alpine for runtime
+- Build Steps: npm install, npm run build
+- Runtime Config: Port 80, NGINX_PORT env variable
+- Volume Mounts: /etc/nginx/conf.d for custom nginx config
+
+3. Optimization Needs:
+- Build Speed: < 2 minutes build time
+- Image Size: < 200MB final image
+- Security: No root user, scan for vulnerabilities
+
+Example Dockerfile:
+```dockerfile
+# Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Runtime stage
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN adduser -D static
+USER static
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
 ## 🚀 CI/CD Pipeline Template
 
 ```
