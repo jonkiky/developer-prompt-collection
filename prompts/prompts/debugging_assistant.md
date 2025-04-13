@@ -25,6 +25,41 @@ As an experienced debugger, please help me analyze this error:
 - [List attempted solutions]
 ```
 
+Example:
+```
+As an experienced debugger, please help me analyze this error:
+
+1. Error Message/Behavior:
+TypeError: Cannot read property 'map' of undefined
+at UserList.render (UserList.js:15)
+
+2. Context:
+- Language/Framework: React 18, TypeScript 4.8
+- Environment: Local development
+- Recent changes: Added user filtering feature
+
+3. Code snippet where error occurs:
+```typescript
+class UserList extends React.Component<Props, State> {
+  render() {
+    return (
+      <div className="user-list">
+        {this.props.users.map(user => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </div>
+    );
+  }
+}
+```
+
+4. What I've tried so far:
+- Added console.log to check this.props.users value
+- Verified API response in Network tab
+- Added null check before map
+- Checked Redux store initialization
+```
+
 ## 🎯 Performance Debugging Template
 
 ```

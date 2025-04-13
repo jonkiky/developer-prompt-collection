@@ -29,6 +29,69 @@ As a technical writer specializing in API documentation, please document this en
 - Caching: [Cache behavior]
 ```
 
+Example:
+```
+As a technical writer specializing in API documentation, please document this endpoint:
+
+1. Basic Information:
+- Endpoint: POST /api/v1/users
+- Purpose: Creates a new user account in the system
+- Authentication: Bearer token required
+
+2. Request Details:
+- Headers:
+  - Authorization: Bearer {token}
+  - Content-Type: application/json
+- Query Parameters: None
+- Request Body:
+  ```json
+  {
+    "username": "string",
+    "email": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "role": "user|admin"
+  }
+  ```
+- Example Request:
+  ```bash
+  curl -X POST https://api.example.com/api/v1/users \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "username": "johndoe",
+      "email": "john@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "role": "user"
+    }'
+  ```
+
+3. Response Details:
+- Success Response (200):
+  ```json
+  {
+    "id": "uuid",
+    "username": "string",
+    "email": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "role": "string",
+    "createdAt": "ISO8601 datetime"
+  }
+  ```
+- Error Responses:
+  - 400: Invalid request body
+  - 401: Unauthorized
+  - 409: Username/email already exists
+  - 422: Validation error
+
+4. Usage Notes:
+- Rate Limits: 10 requests per minute per API key
+- Permissions: Requires 'create:users' scope
+- Caching: Responses are not cached
+```
+
 ## 🔄 API Change Documentation Template
 
 ```

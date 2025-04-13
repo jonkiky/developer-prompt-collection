@@ -31,6 +31,56 @@ As a senior system architect, help me design a system that:
 - Data Flow: [Information movement]
 ```
 
+Example:
+```
+As a senior system architect, help me design a system that:
+
+1. System Requirements:
+- Purpose: E-commerce platform with real-time inventory
+- Scale: 1M monthly active users, 100K products
+- Performance: Page load < 2s, API responses < 200ms
+- Reliability: 99.99% uptime, multi-region failover
+
+2. Key Components:
+- Services:
+  * Product Service (catalog, search)
+  * Order Service (cart, checkout)
+  * Inventory Service (stock management)
+  * User Service (auth, profiles)
+- Data Stores:
+  * PostgreSQL for orders and users
+  * Elasticsearch for product search
+  * Redis for cart and sessions
+- External Systems:
+  * Payment gateway (Stripe)
+  * Shipping API (FedEx/UPS)
+  * Email service (SendGrid)
+- Infrastructure:
+  * AWS multi-region deployment
+  * CloudFront CDN
+  * EKS for container orchestration
+
+3. Design Constraints:
+- Budget: $50K/month cloud costs
+- Technology: Must use existing Java microservices
+- Timeline: 6 months to MVP
+- Team: 8 developers, 2 DevOps engineers
+
+4. Expected Outcome:
+- Architecture Diagram: 
+  * Microservices topology
+  * Data flow patterns
+  * Scaling strategies
+- Component Details:
+  * Service boundaries
+  * API contracts
+  * Data models
+- Data Flow:
+  * User journey mapping
+  * System interactions
+  * Failure scenarios
+```
+
 ## 📊 Scalability Analysis Template
 
 ```
