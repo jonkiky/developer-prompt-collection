@@ -1,4 +1,4 @@
-# 🧠 Developer Prompt Collection
+#  Developer Prompt Collection
 
 A curated collection of high-quality prompts designed to help developers work faster, smarter, and more creatively with AI tools like ChatGPT, Claude, GitHub Copilot, and more.
 
